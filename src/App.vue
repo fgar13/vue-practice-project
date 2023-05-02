@@ -6,7 +6,7 @@ import HelloWorld from "./components/HelloWorld.vue";
 <template>
   <header>
     <div class="wrapper">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar navbar-expand-lg navbar-dark bg">
         <div class="container-fluid">
           <RouterLink class="navbar-brand" to="/">Navbar</RouterLink>
 
