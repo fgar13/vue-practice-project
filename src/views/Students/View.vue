@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <div class="card">
       <div class="card-header">
         <h4>
@@ -23,8 +23,23 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-
+            <tr v-for="(student, index) in this.students" :key="index">
+              <!-- <td>{{ student.id }}</td>
+              <td>{{ student.name }}</td>
+              <td>{{ student.created }}</td> -->
+              <td>{{student.id}}</td>
+              <td>{{student.id}}</td>
+              <td>{{student.id}}</td>
+              <td>{{student.id}}</td>
+              <td>{{student.id}}</td>
+              <td>{{student.id}}</td>
+              <td>{{student.id}}</td>
+              <!-- <td>
+                <RouterLink to="/" class="btn btn-success">
+                  Edit
+                </RouterLink>
+                <button type="button" class="btn btn-danger">Delete</button>
+              </td> -->
             </tr>
           </tbody>
         </table>
@@ -34,7 +49,7 @@
 </template>
 
 <script>
-
+import axios from 'axios'
 export default{
   name: 'students',
   data(){
@@ -43,7 +58,15 @@ export default{
     }
   },
   mounted(){
-    console.log('I am here')
+    this.getStudents();
+    //console.log('I am here')
+  },
+  methods: {
+    getStudents(){
+      axios.get('http://127.0.0.1:8000/').then(res =>{
+        this.students = res.data.students
+      });
+    }
   }
 }
 
