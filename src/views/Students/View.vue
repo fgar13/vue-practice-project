@@ -23,23 +23,21 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(student, index) in this.students" :key="index">
-              <!-- <td>{{ student.id }}</td>
-              <td>{{ student.name }}</td>
-              <td>{{ student.created }}</td> -->
-              <td>{{student.id}}</td>
-              <td>{{student.id}}</td>
-              <td>{{student.id}}</td>
-              <td>{{student.id}}</td>
-              <td>{{student.id}}</td>
-              <td>{{student.id}}</td>
-              <td>{{student.id}}</td>
-              <!-- <td>
+            <tr v-for="(student, index) in students" :key="index">
+              <td>{{ student.id }}</td>
+              <td>{{ student.id }}</td>
+              <td>{{ student.id }}</td>
+              <td>{{ student.id }}</td>
+              <td>{{ student.id }}</td>
+              <td>{{ student.id }}</td>
+              <td>
                 <RouterLink to="/" class="btn btn-success">
                   Edit
                 </RouterLink>
-                <button type="button" class="btn btn-danger">Delete</button>
-              </td> -->
+                <button type="button" class="btn btn-danger">
+                  Delete
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -49,25 +47,26 @@
 </template>
 
 <script>
-import axios from 'axios'
-export default{
+import axios from 'axios';
+
+export default {
   name: 'students',
-  data(){
-    return{
-      students: []
-    }
+  data() {
+    return {
+      students: [],
+    };
   },
-  mounted(){
+  mounted() {
     this.getStudents();
-    //console.log('I am here')
+    console.log("I am here")
   },
   methods: {
-    getStudents(){
-      axios.get('http://127.0.0.1:8000/').then(res =>{
-        this.students = res.data.students
+    getStudents() {
+      axios.get('http://127.0.0.1:8000/').then((res) => {
+        this.students = res.data//.students
+        console.log(this.students)
       });
-    }
-  }
-}
-
+    },
+  },
+};
 </script>
